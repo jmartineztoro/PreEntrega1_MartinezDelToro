@@ -1,0 +1,37 @@
+@use './ColorVariables.scss' as *;
+
+
+.navbar {
+    display: flex;
+    position: fixed;
+    top:0;
+    left: 0;
+    right:0;
+    width:100% -30px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 15px;
+    background-color: $light;
+    color: $dark;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    color: $dark;
+    gap: 1rem;
+
+    a{
+      text-decoration: none;
+      font-weight: 600;
+      color: $primary;
+
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+
+ 
+
+   
+  }

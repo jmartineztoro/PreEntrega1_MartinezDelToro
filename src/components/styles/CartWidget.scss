@@ -1,0 +1,11 @@
+@use './ColorVariables.scss' as *;
+
+.cartIcon{
+   
+    color: $primary ;
+cursor: pointer;
+    &:hover{
+      opacity: 0.5;
+    }
+
+  }
