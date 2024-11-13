@@ -1,0 +1,27 @@
+@use './ColorVariables.scss' as *;
+
+.item-list{
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.item {
+
+    padding: 20px;
+    border-radius: 5px;
+    color: $dark;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba($secondary, 0.1);
+}
+
+.item:hover {
+
+   
+    cursor: pointer;
+    background-color: rgba($primary, 0.1); // Use the secondary color with 50% opacity
+    transition: background-color 0.3s;
+}
