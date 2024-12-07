@@ -14,19 +14,17 @@ const CartWidget = ({ItemCount}) => {
 
     return (
       <>
-       <Badge 
-          badgeContent= {ItemCount}
-          color="error"
-      
-        
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-         
-        >
-         <ShoppingCartIcon className="cartIcon" /> 
-        </Badge>
+       <ShoppingCartIcon className="cartIcon" /> 
+      {ItemCount > 0 && (
+  <Badge
+    badgeContent={ItemCount}
+    color="error"
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'right',
+    }}
+  />
+)}
       </>
     
 );

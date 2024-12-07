@@ -2,13 +2,14 @@ import '../components/styles/NavBar.scss';
 import CartWidget from '../components/CartWidget.jsx';
 import { NavLink} from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../context/CartContext.jsx';
 
 const NavBar = () =>
 {
-
-
-
+  // eslint-disable-next-line no-unused-vars
+  const [cartProducts,setCartItems] = useContext(CartContext);
+  console.log(cartProducts)
 
     return(
 
@@ -25,7 +26,13 @@ const NavBar = () =>
           <li><NavLink to={`/vases/2`}>Vases</NavLink></li>
           <li><NavLink to={'/Contacts'}>Contacts</NavLink></li>
         </ul>
-        <CartWidget ItemCount='2'/>
+        <NavLink to={'/cart'}>
+        
+       
+        <CartWidget ItemCount={cartProducts.reduce((total,item)=> total + item.quantity, 0)} />
+   
+        </NavLink>
+     
       </nav>
 
     )

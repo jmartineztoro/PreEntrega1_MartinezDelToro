@@ -8,16 +8,18 @@ const Items =[
     price: '$14.50' ,
     category: "cup",
     categoryId: "1",
+    stock: 4,
     imgUrl: "https://png.pngtree.com/png-vector/20231116/ourmid/pngtree-green-ceramic-cup-isolated-png-image_10537324.png",
     },
     {
       
       id: 2,
-      title: "Vase",
+      title: "Red Vase",
       description: "Elevate your living space with this beautifully crafted ceramic vase, designed to add a touch of elegance and sophistication to any room. With its sleek, modern silhouette and high-quality finish, this vase is perfect for displaying fresh flowers, dried arrangements, or simply as a statement piece on its own.",
        price: '$24.00' ,
        category: "vase",
        categoryId: "2",
+       stock: 8,
        imgUrl: "https://pngimg.com/uploads/vase/vase_PNG119.png"
       },
       {
@@ -28,6 +30,7 @@ const Items =[
          price: '$21.12' ,
          category: "cup",
          categoryId: "1",
+         stock: 9,
          imgUrl: "https://freepngimg.com/thumb/tea_cup/34783-4-tea-cup-transparent.png"
         },
         {
@@ -39,6 +42,7 @@ const Items =[
            price: '$34.30' ,
            category: "vase",
            categoryId: "2",
+           stock: 10,
            imgUrl: "https://static.vecteezy.com/system/resources/previews/021/345/585/original/white-flower-vase-isolated-on-a-transparent-background-png.png"
           }
           

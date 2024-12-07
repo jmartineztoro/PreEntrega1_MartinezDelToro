@@ -12,7 +12,7 @@ const WelcomeSection = () => {
              }}>
            
         
-           <Grid2 container style={{ height: '100vh',  }} alignItems="center"   justifyContent="start">
+           <Grid2 container  alignItems="center"   justifyContent="start">
       <Grid2 item xs={12} sm={6}>
        <section style={{
       margin: 120, 
