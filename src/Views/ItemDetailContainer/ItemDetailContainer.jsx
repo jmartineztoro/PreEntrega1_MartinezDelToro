@@ -42,8 +42,7 @@ export default function ItemDetailContainer(){
          addItem(item,quantity);
          // ToastAlert
          //setqu(1)
-         console.log(item)
-         console.log(quantity)
+ 
      
  }
 
@@ -83,7 +82,7 @@ export default function ItemDetailContainer(){
              +
            </button>
 <br/>
-<Button onClick={handleCartCount} className='btn-primary' style={{marginTop: '40px',width: '200px', height: '40px', border: 0, borderRadius: 8,fontSize: 16 }} variant='contained'  href="#contained-buttons" > Buy Now</Button>
+<Button onClick={handleCartCount} className='btn-primary' style={{marginTop: '40px',width: '200px', height: '40px', border: 0, borderRadius: 8,fontSize: 16 }} variant='contained'  href="#contained-buttons" > Add to Cart</Button>
     </article>
     </div>
 

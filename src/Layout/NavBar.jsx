@@ -9,7 +9,7 @@ const NavBar = () =>
 {
   // eslint-disable-next-line no-unused-vars
   const [cartProducts,setCartItems] = useContext(CartContext);
-  console.log(cartProducts)
+
 
     return(
 

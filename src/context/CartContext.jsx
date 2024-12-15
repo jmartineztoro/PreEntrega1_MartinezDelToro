@@ -11,7 +11,7 @@ export const CartProvider = ({ children }) => {
     const addItem = (item , quantity) =>{
         
         if(isInCart(item.id)){
-            console.log(cartProducts)
+       
             setProducts(cartProducts.map(cartItem=>
                 cartItem.id === item.id
                 ?{...cartItem, quantity: cartItem.quantity + quantity} 
@@ -23,7 +23,14 @@ export const CartProvider = ({ children }) => {
             setProducts([...cartProducts,{...item,quantity}])
         }
     };
-    
+
+    const updateProduct = (productId, updatedQuantity) => {
+        setProducts(cartProducts.map(product =>
+            productId === product.id
+            ? { ...product, quantity: updatedQuantity } // Update the quantity
+            : product // Return the product unchanged
+        ));
+    };
     const removeItem = (itemId) => {
         setProducts(cartProducts.filter(item => item.id !== itemId))
     }
@@ -49,6 +56,7 @@ return(
         cartProducts,
         addItem,
         removeItem,
+        updateProduct,
         clear,
         isInCart,
       

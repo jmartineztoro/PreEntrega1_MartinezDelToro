@@ -91,13 +91,14 @@ export async function filterProductsByPrice(price) {
 }
 
 //agregar
-export async function sendOrder(order){
-const ordersCollection = collection(db, 'orders')
-try{
-  const docRef = await addDoc(ordersCollection,order);
-  return docRef.id;
-}catch(error){
-console.error('Error al agregar el documento nuevo', error)
-}
+export async function sendOrder(order) {
+  const ordersCollection = collection(db, 'orders');
+  try {
+    const docRef = await addDoc(ordersCollection, order);
+    return docRef.id;
+  } catch (error) {
+    console.error('Error adding new document:', error);
+    throw new Error('Failed to add order');
+  }
 
 }

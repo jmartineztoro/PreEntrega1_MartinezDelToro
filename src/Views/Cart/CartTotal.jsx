@@ -9,7 +9,16 @@ const CartTotal = ({product}) => {
 
 
     const [orderId, setOrderId] = useState(null);
-    const[,clear] = useContext(CartContext)
+    const[,,,,clear] = useContext(CartContext)
+
+
+    const total = product.reduce((sum, item) => {
+     
+      const price = parseFloat(item.price.replace('$', ''));
+      const quantity = item.quantity || 0;
+      return sum + (isNaN(price) ? 0 : price * quantity);
+    }, 0).toFixed(2);
+
   const handleClick = () => {
     const newOrder = {
         
@@ -19,24 +28,18 @@ const CartTotal = ({product}) => {
         phone: '+5491167778888',
       },
       date: new Date(),
-      items: [
-        {
-          id: 1,
-          title: 'red vase',
-          price: 24.00,
-        },
-        {
-          id: 2,
-          title: 'red cup',
-          price: 24.00,
-        },
-      ],
-      total: 48.00,
+      items: product.map(product => ({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        quantity: product.quantity,
+      })),
+      total: total,
     };
 
     sendOrder(newOrder).then((id) => setOrderId(id));
+    console.log(orderId)
     clear();
-console.log(orderId)
   };
   return (
     <section className="store-item mt-2">
@@ -46,10 +49,7 @@ console.log(orderId)
           <Grid2 container justifyContent="space-between" alignItems="center">
             <Typography variant="body1">Total amount</Typography>
             <Typography variant="body1">
-              {product.reduce((sum, item) => {
-  return sum + (item.price * item.quantity);
-}, 0)
-}
+           {'$ ' + total}
             </Typography>
           </Grid2>
         </Grid2>

@@ -1,13 +1,38 @@
 /* eslint-disable react/prop-types */
 
 import { Button, Grid2, Box, Typography, Card } from "@mui/material";
-import CounterComponent from "../../components/Counter";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 
 export default function  CartList({product})  {
+  const [count,setCount] = useState(product.quantity);
+  const [,,removeItem,updateProduct] = useContext(CartContext);
+  const handleClickInc = () => {
+    if (count < product.stock) {
+      const newQuantity = count + 1;
+      setCount(newQuantity);
+      updateProduct(product.id, newQuantity);
+    }
+  };
+
+  const handleClickDec = () => {
+    if (count > 1) {
+      const newQuantity = count - 1;
+      setCount(newQuantity);
+      updateProduct(product.id, newQuantity);
+    }
+  };
+
+  const handleRemove =() =>{
+
+    removeItem(product.id);
+  }
+
+  
+
   return (
-    <section
-      className="mt-2 store-item bottom-line pb-3" style={{height: '100px '}} >
-        <Card style={{padding: '30px'}}>
+
+        <Card key={product.id} style={{padding: '30px', marginBottom: " 10px"}}>
 
       <Grid2 container  columns={16} >
         <Grid2 item size={4} style={{padding: '20px'}} >
@@ -30,7 +55,16 @@ export default function  CartList({product})  {
                 gap: "0.5rem",
               }}
             >
-            <CounterComponent product={product}></CounterComponent>
+               <h4>In Stock: {product.stock}</h4>
+     
+           <br/>
+          <button onClick={handleClickDec} className="btn-counter ">
+             -
+           </button>
+           <span style={{padding: 40}}>{product.quantity}</span>
+           <button onClick={handleClickInc} className="btn-counter">
+             +
+           </button>
             </Box>
           </Box>
 
@@ -42,8 +76,7 @@ export default function  CartList({product})  {
               marginTop: 1,
             }}
           >
-            {/* <Typography>{item.code}</Typography>
-            {item.note && <Typography sx={{ fontStyle: "italic" }}>({item.note})</Typography>} */}
+   
           </Box>
 
           <Box
@@ -80,7 +113,7 @@ export default function  CartList({product})  {
               <Button
                 variant="outlined"
                 size="small"
-                // onClick={item.handleRemove}
+                 onClick={handleRemove}
                 startIcon={<i className="fa fa-trash"></i>}
               >
                 Remove Item
@@ -95,7 +128,7 @@ export default function  CartList({product})  {
       </Grid2>
 
         </Card>
-    </section>
+    
   );
 };
 
