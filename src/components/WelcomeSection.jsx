@@ -4,8 +4,8 @@ import { Grid2, Typography, Button } from '@mui/material';
 
 const WelcomeSection = () => {
   return (
-    <section style={{width: "100%",height: "80vh", backgroundImage: `url("src/images/ceramic_bg_2.png")`,
-        backgroundSize: "auto",
+    <section style={{width: "100%",height: "80vh", backgroundImage: `url("https://c0.wallpaperflare.com/preview/463/304/1014/art-artist-background-bowl.jpg")`,
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",     
         
